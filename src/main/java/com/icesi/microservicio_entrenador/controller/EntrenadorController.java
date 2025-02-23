@@ -15,14 +15,19 @@ public class EntrenadorController {
     @Autowired
     private EntrenadorService entrenadorService;
 
-    @PostMapping("/add")
+    @PostMapping
     public Entrenador agregarEntrenador(@RequestBody Entrenador entrenador) {
         return entrenadorService.agregarEntrenador(entrenador);
     }
 
-    @GetMapping("/get")
+    @GetMapping
     public List<Entrenador> obtenerTodosEntrenadores() {
         return entrenadorService.obtenerTodosEntrenadores();
+    }
+
+    @GetMapping("/{id}")
+    public Entrenador obtenerEntrenadorPorId(@PathVariable Long id) {
+        return entrenadorService.obtenerEntrenadorPorId(id);
     }
 
 
