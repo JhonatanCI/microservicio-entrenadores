@@ -40,4 +40,9 @@ public class EntrenadorController {
     public String publico() {
         return "Este es un recurso público";
     }
+
+    @GetMapping("/{id}")
+    public Entrenador obtenerEntrenadorPorId(@PathVariable Long id) {
+        return entrenadorService.obtenerEntrenadorPorId(id);
+    }
 }
