@@ -41,7 +41,10 @@ public class EntrenadorController {
         return "Este es un recurso público";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_TRAINER')")
     @GetMapping("/{id}")
+    @Operation(summary = "Obtener un entrenador por ID")
+    @ApiResponse(responseCode = "200", description = "Entrenador obtenido con éxito")
     public Entrenador obtenerEntrenadorPorId(@PathVariable Long id) {
         return entrenadorService.obtenerEntrenadorPorId(id);
     }
