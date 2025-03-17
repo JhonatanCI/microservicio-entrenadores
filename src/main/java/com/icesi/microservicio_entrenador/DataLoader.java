@@ -1,6 +1,5 @@
 package com.icesi.microservicio_entrenador;
 
-
 import com.icesi.microservicio_entrenador.model.Entrenador;
 import com.icesi.microservicio_entrenador.repository.EntrenadorRepository;
 
@@ -13,14 +12,11 @@ import java.time.LocalDateTime;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-
     @Autowired
     private EntrenadorRepository entrenadorRepository;
 
-
     @Override
     public void run(String... args) throws Exception {
-
 
         // Cargar entrenadores de ejemplo
         Entrenador entrenador1 = new Entrenador();
