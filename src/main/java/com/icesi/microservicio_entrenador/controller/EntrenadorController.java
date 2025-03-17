@@ -10,6 +10,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
+
+
 
 @RestController
 @RequestMapping("/entrenador")
@@ -18,6 +22,12 @@ public class EntrenadorController {
 
     @Autowired
     private EntrenadorService entrenadorService;
+
+    @GetMapping("/debug")
+    public String debugRoles() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return "User: " + auth.getName() + " | Roles: " + auth.getAuthorities();
+    }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/add")
